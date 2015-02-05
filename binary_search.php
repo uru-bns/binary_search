@@ -46,5 +46,5 @@ function binary_search_recursive($data_order_by_ascending, $needle, $left, $righ
     $new_right = $right;
   }
 
-  return binary_search($data_order_by_ascending, $needle, $new_left, $new_right);
+  return binary_search_recursive($data_order_by_ascending, $needle, $new_left, $new_right);
 }
