@@ -2,26 +2,42 @@
 
 require_once('./binary_search.php');
 
-$data = [1, 2, 3, 10, 20, 30, 100, 200, 300];
-$right = count($data) - 1;
+class BinarySearchTest extends PHPUnit_Framework_TestCase
+{
+  private $_data = null;
+  private $_dataRightIndex = null;
 
-var_dump(binary_search($data, 1, 0, $right) == 0);
-var_dump(binary_search($data, 2, 0, $right) == 1);
-var_dump(binary_search($data, 3, 0, $right) == 2);
-var_dump(binary_search($data, 10, 0, $right) == 3);
-var_dump(binary_search($data, 20, 0, $right) == 4);
-var_dump(binary_search($data, 30, 0, $right) == 5);
-var_dump(binary_search($data, 100, 0, $right) == 6);
-var_dump(binary_search($data, 200, 0, $right) == 7);
-var_dump(binary_search($data, 300, 0, $right) == 8);
-var_dump(binary_search($data, -1, 0, $right) == -1);
-var_dump(binary_search_recursive($data, 1, 0, $right) == 0);
-var_dump(binary_search_recursive($data, 2, 0, $right) == 1);
-var_dump(binary_search_recursive($data, 3, 0, $right) == 2);
-var_dump(binary_search_recursive($data, 10, 0, $right) == 3);
-var_dump(binary_search_recursive($data, 20, 0, $right) == 4);
-var_dump(binary_search_recursive($data, 30, 0, $right) == 5);
-var_dump(binary_search_recursive($data, 100, 0, $right) == 6);
-var_dump(binary_search_recursive($data, 200, 0, $right) == 7);
-var_dump(binary_search_recursive($data, 300, 0, $right) == 8);
-var_dump(binary_search_recursive($data, -1, 0, $right) == -1);
+  public function setUp()
+  {
+    $this->_data = [1, 2, 3, 10, 20, 30, 100, 200, 300];
+    $this->_dataRightIndex = count($this->_data) - 1;
+  }
+
+  public function test_binary_search()
+  {
+    $this->assertEquals(binary_search($this->_data, 1, 0, $this->_dataRightIndex), 0);
+    $this->assertEquals(binary_search($this->_data, 2, 0, $this->_dataRightIndex), 1);
+    $this->assertEquals(binary_search($this->_data, 3, 0, $this->_dataRightIndex), 2);
+    $this->assertEquals(binary_search($this->_data, 10, 0, $this->_dataRightIndex), 3);
+    $this->assertEquals(binary_search($this->_data, 20, 0, $this->_dataRightIndex), 4);
+    $this->assertEquals(binary_search($this->_data, 30, 0, $this->_dataRightIndex), 5);
+    $this->assertEquals(binary_search($this->_data, 100, 0, $this->_dataRightIndex), 6);
+    $this->assertEquals(binary_search($this->_data, 200, 0, $this->_dataRightIndex), 7);
+    $this->assertEquals(binary_search($this->_data, 300, 0, $this->_dataRightIndex), 8);
+    $this->assertEquals(binary_search($this->_data, -1, 0, $this->_dataRightIndex), -1);
+  }
+
+  public function test_binary_search_recursive()
+  {
+    $this->assertEquals(binary_search_recursive($this->_data, 1, 0, $this->_dataRightIndex), 0);
+    $this->assertEquals(binary_search_recursive($this->_data, 2, 0, $this->_dataRightIndex), 1);
+    $this->assertEquals(binary_search_recursive($this->_data, 3, 0, $this->_dataRightIndex), 2);
+    $this->assertEquals(binary_search_recursive($this->_data, 10, 0, $this->_dataRightIndex), 3);
+    $this->assertEquals(binary_search_recursive($this->_data, 20, 0, $this->_dataRightIndex), 4);
+    $this->assertEquals(binary_search_recursive($this->_data, 30, 0, $this->_dataRightIndex), 5);
+    $this->assertEquals(binary_search_recursive($this->_data, 100, 0, $this->_dataRightIndex), 6);
+    $this->assertEquals(binary_search_recursive($this->_data, 200, 0, $this->_dataRightIndex), 7);
+    $this->assertEquals(binary_search_recursive($this->_data, 300, 0, $this->_dataRightIndex), 8);
+    $this->assertEquals(binary_search_recursive($this->_data, -1, 0, $this->_dataRightIndex), -1);
+  }
+}
