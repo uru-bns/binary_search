@@ -21,13 +21,13 @@ function binary_search($data_order_by_ascending, $needle, $left, $right)
     }
   }
 
-  return -1;
+  return false;
 }
 
 function binary_search_recursive($data_order_by_ascending, $needle, $left, $right)
 {
   if ($left > $right) {
-    return -1;
+    return false;
   }
 
   $median_index = (int)($left + (($right - $left) / 2));

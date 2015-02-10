@@ -24,7 +24,7 @@ class BinarySearchTest extends PHPUnit_Framework_TestCase
     $this->assertEquals(binary_search($this->_data, 100, 0, $this->_dataRightIndex), 6);
     $this->assertEquals(binary_search($this->_data, 200, 0, $this->_dataRightIndex), 7);
     $this->assertEquals(binary_search($this->_data, 300, 0, $this->_dataRightIndex), 8);
-    $this->assertEquals(binary_search($this->_data, -1, 0, $this->_dataRightIndex), -1);
+    $this->assertEquals(binary_search($this->_data, false, 0, $this->_dataRightIndex), false);
   }
 
   public function test_binary_search_recursive()
@@ -38,6 +38,6 @@ class BinarySearchTest extends PHPUnit_Framework_TestCase
     $this->assertEquals(binary_search_recursive($this->_data, 100, 0, $this->_dataRightIndex), 6);
     $this->assertEquals(binary_search_recursive($this->_data, 200, 0, $this->_dataRightIndex), 7);
     $this->assertEquals(binary_search_recursive($this->_data, 300, 0, $this->_dataRightIndex), 8);
-    $this->assertEquals(binary_search_recursive($this->_data, -1, 0, $this->_dataRightIndex), -1);
+    $this->assertEquals(binary_search_recursive($this->_data, false, 0, $this->_dataRightIndex), false);
   }
 }
